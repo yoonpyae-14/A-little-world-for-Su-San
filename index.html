@@ -1,0 +1,1243 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#e4f4e8">
+
+<title>For Su Su San ♡</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+
+  --mint: #dff2e5;
+
+  --green: #47785b;
+
+  --deep: #294b38;
+
+  --cream: #fffdf8;
+
+  --pink: #f8e5eb;
+
+  --lavender: #eeebfa;
+
+  --text: #34483b;
+
+}
+
+* { box-sizing: border-box; }
+
+body {
+
+  margin: 0;
+
+  font-family: 'DM Sans', sans-serif;
+
+  background: linear-gradient(145deg, #f5fbf5, #fffaf8, #f2f0fc);
+
+  color: var(--text);
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+}
+
+button, input { font: inherit; }
+
+button {
+
+  cursor: pointer;
+
+  border: none;
+
+  transition: transform .2s, box-shadow .2s;
+
+}
+
+button:hover { transform: translateY(-2px); }
+
+button:active { transform: scale(.97); }
+
+.hidden { display: none !important; }
+
+#gate {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 24px;
+
+  text-align: center;
+
+}
+
+.gate-card {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  padding: 35px 25px;
+
+  border: 1px solid #ffffff;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.78);
+
+  box-shadow: 0 20px 70px #73947a20;
+
+  animation: appear .8s ease;
+
+}
+
+.flower {
+
+  font-size: 57px;
+
+  animation: float 3s ease-in-out infinite;
+
+}
+
+h1, h2, h3 {
+
+  font-family: 'Playfair Display', serif;
+
+  font-weight: 500;
+
+}
+
+h1 { font-size: clamp(32px, 8vw, 46px); margin: 12px 0; }
+
+h2 { font-size: 29px; }
+
+p { line-height: 1.8; }
+
+.subtitle { color: #758779; font-size: 14px; }
+
+input {
+
+  width: 100%;
+
+  padding: 15px;
+
+  border: 1px solid #d6e7d8;
+
+  border-radius: 15px;
+
+  outline: none;
+
+  background: #fbfefb;
+
+  color: var(--deep);
+
+  margin: 12px 0;
+
+  text-align: center;
+
+}
+
+input:focus {
+
+  border-color: #78a988;
+
+  box-shadow: 0 0 0 3px #cfe8d5;
+
+}
+
+.primary {
+
+  padding: 14px 23px;
+
+  width: 100%;
+
+  border-radius: 15px;
+
+  color: white;
+
+  font-weight: 700;
+
+  background: linear-gradient(135deg, #659775, #47785b);
+
+  box-shadow: 0 8px 18px #47785b25;
+
+}
+
+.secondary {
+
+  background: white;
+
+  color: var(--green);
+
+  border: 1px solid #dbeade;
+
+  border-radius: 14px;
+
+  padding: 12px 18px;
+
+}
+
+.error { color: #c46b7a; font-size: 13px; min-height: 20px; }
+
+#app {
+
+  max-width: 760px;
+
+  margin: auto;
+
+  padding: 22px 17px 50px;
+
+  animation: appear .6s ease;
+
+}
+
+.topbar {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 22px;
+
+  font-size: 13px;
+
+  color: var(--green);
+
+}
+
+.pill {
+
+  background: #ffffffc9;
+
+  border: 1px solid #e4eee4;
+
+  padding: 9px 13px;
+
+  border-radius: 30px;
+
+}
+
+.hero {
+
+  text-align: center;
+
+  padding: 28px 15px 32px;
+
+  background: #ffffffa8;
+
+  border: 1px solid white;
+
+  border-radius: 28px;
+
+  box-shadow: 0 10px 40px #77977a10;
+
+}
+
+.hero h1 { color: var(--deep); }
+
+.hero p { max-width: 480px; margin: 10px auto; }
+
+.section {
+
+  background: #ffffffd9;
+
+  border: 1px solid white;
+
+  border-radius: 25px;
+
+  padding: 23px 19px;
+
+  margin-top: 18px;
+
+  box-shadow: 0 10px 35px #6b8b7310;
+
+}
+
+.section h2 { margin: 0 0 10px; }
+
+.small-label {
+
+  color: #72917a;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  font-weight: 700;
+
+}
+
+.options {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin: 18px 0;
+
+}
+
+.option {
+
+  background: #f2f8f0;
+
+  color: #385c42;
+
+  border: 1px solid #dfece0;
+
+  border-radius: 15px;
+
+  padding: 15px 10px;
+
+  line-height: 1.5;
+
+}
+
+.option:nth-child(2n) { background: #f7f2fc; border-color: #ebe3f5; }
+
+.option:nth-child(3n) { background: #fff3f5; border-color: #f5e3e7; }
+
+.option.correct { background: #dff3e3; border: 2px solid #76ad82; }
+
+.option.wrong { background: #fff0f0; border: 2px solid #e6a7ad; }
+
+.feedback {
+
+  background: #f6faf4;
+
+  border-radius: 14px;
+
+  padding: 13px;
+
+  margin: 12px 0;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+}
+
+.progress-track {
+
+  height: 7px;
+
+  border-radius: 20px;
+
+  background: #e9f0e8;
+
+  overflow: hidden;
+
+  margin: 16px 0;
+
+}
+
+#progress {
+
+  height: 100%;
+
+  width: 0%;
+
+  background: #78a987;
+
+  transition: width .4s;
+
+}
+
+.mood-btn { font-size: 15px; }
+
+#compliment {
+
+  min-height: 88px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 15px;
+
+  background: #f7f4fc;
+
+  border-radius: 18px;
+
+  line-height: 1.8;
+
+  margin: 14px 0;
+
+}
+
+.music-card {
+
+  background: linear-gradient(135deg, #e5f3e8, #f8eef6);
+
+  border-radius: 20px;
+
+  padding: 19px;
+
+  text-align: center;
+
+}
+
+.music-card iframe {
+
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 16/9;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  margin-top: 15px;
+
+}
+
+.letter {
+
+  white-space: pre-line;
+
+  line-height: 2;
+
+  background: #fffaf4;
+
+  border: 1px solid #f3eadd;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  font-size: 14px;
+
+}
+
+.center { text-align: center; }
+
+.hug {
+
+  font-size: 72px;
+
+  display: block;
+
+  margin: 12px;
+
+  animation: float 2.5s ease-in-out infinite;
+
+}
+
+footer {
+
+  text-align: center;
+
+  color: #89988d;
+
+  font-size: 12px;
+
+  padding: 30px 0 5px;
+
+}
+
+#toast {
+
+  position: fixed;
+
+  bottom: 20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: #294b38;
+
+  color: white;
+
+  padding: 12px 20px;
+
+  border-radius: 30px;
+
+  font-size: 13px;
+
+  z-index: 20;
+
+  box-shadow: 0 5px 25px #0002;
+
+}
+
+.sparkle {
+
+  position: fixed;
+
+  pointer-events: none;
+
+  z-index: 30;
+
+  animation: sparkle 1.3s ease-out forwards;
+
+}
+
+@keyframes float {
+
+  0%,100% { transform: translateY(0) rotate(-3deg); }
+
+  50% { transform: translateY(-9px) rotate(3deg); }
+
+}
+
+@keyframes appear {
+
+  from { opacity: 0; transform: translateY(12px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+@keyframes sparkle {
+
+  0% { opacity: 1; transform: translateY(0) scale(.5) rotate(0); }
+
+  100% { opacity: 0; transform: translateY(-90px) scale(1.4) rotate(35deg); }
+
+}
+
+@media (max-width: 420px) {
+
+  #app { padding: 15px 12px 35px; }
+
+  .section { padding: 20px 15px; }
+
+  .options { gap: 8px; }
+
+  .option { padding: 13px 8px; font-size: 13px; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAME GATE -->
+
+<section id="gate">
+
+  <div class="gate-card">
+
+    <div class="flower">🌷</div>
+
+    <p class="small-label">A LITTLE PLACE FOR YOU</p>
+
+    <h1>Hey, you.</h1>
+
+    <p>Before you come inside, tell me your name. ♡</p>
+
+    <form id="nameForm">
+
+      <input id="nameInput" placeholder="Your lovely name..." autocomplete="off" required>
+
+      <button class="primary" type="submit">Open my little universe ✨</button>
+
+    </form>
+
+    <p class="error" id="gateError"></p>
+
+    <p class="subtitle">Made with a little care, just for one person.</p>
+
+  </div>
+
+</section>
+
+<!-- MAIN WEBSITE -->
+
+<main id="app" class="hidden">
+
+  <div class="topbar">
+
+    <span class="pill">🌿 Su Su San's little universe</span>
+
+    <span class="pill">A safe little corner ♡</span>
+
+  </div>
+
+  <section class="hero">
+
+    <div class="flower">🌼</div>
+
+    <p class="small-label">A SMALL REMINDER FOR YOU</p>
+
+    <h1>Hi, Su Su San ♡</h1>
+
+    <p>Life can be a little too much sometimes. So I made you this tiny corner of the internet.</p>
+
+    <p>No pressure. No expectations. Just a few smiles waiting for you.</p>
+
+    <button class="primary" style="max-width:240px;margin-top:12px"
+
+      onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">
+
+      Let's have a little fun 🌷
+
+    </button>
+
+  </section>
+
+  <!-- GAME -->
+
+  <section class="section" id="quiz">
+
+    <p class="small-label">01 / THE SILLY QUIZ</p>
+
+    <h2>A very important investigation 🕵🏻‍♀️</h2>
+
+    <p>Choose your answer. This quiz is scientifically unserious.</p>
+
+    <div class="progress-track"><div id="progress"></div></div>
+
+    <p id="questionCount" class="subtitle">Question 1 of 5</p>
+
+    <h3 id="question">Loading your question...</h3>
+
+    <div class="options" id="answers"></div>
+
+    <div id="quizFeedback" class="feedback hidden"></div>
+
+    <button id="nextQuestion" class="primary hidden">Next question →</button>
+
+    <div id="quizResult" class="hidden center">
+
+      <h3>Investigation complete! 🏆</h3>
+
+      <p id="resultText"></p>
+
+      <button class="secondary" onclick="restartQuiz()">Play again ↻</button>
+
+    </div>
+
+  </section>
+
+  <!-- MOOD -->
+
+  <section class="section">
+
+    <p class="small-label">02 / CHECK IN WITH YOURSELF</p>
+
+    <h2>How's your little heart today? ☁️</h2>
+
+    <p>You don't have to pretend you're okay here.</p>
+
+    <div class="options">
+
+      <button class="option mood-btn" onclick="pickMood('sad')">🥺 A little sad</button>
+
+      <button class="option mood-btn" onclick="pickMood('tired')">😮‍💨 So tired</button>
+
+      <button class="option mood-btn" onclick="pickMood('angry')">😤 A little annoyed</button>
+
+      <button class="option mood-btn" onclick="pickMood('okay')">🌤️ Doing okay</button>
+
+      <button class="option mood-btn" onclick="pickMood('happy')">🌷 Feeling happy</button>
+
+      <button class="option mood-btn" onclick="pickMood('unknown')">🫧 I don't know</button>
+
+    </div>
+
+    <div id="moodMessage" class="feedback hidden" aria-live="polite"></div>
+
+  </section>
+
+  <!-- COMPLIMENT JAR -->
+
+  <section class="section center">
+
+    <p class="small-label">03 / THE COMPLIMENT JAR</p>
+
+    <h2>A tiny note for you 💌</h2>
+
+    <p>Shake the imaginary jar and see what comes out.</p>
+
+    <div id="compliment">Your little note is waiting in here. 🌱</div>
+
+    <button class="primary" onclick="getCompliment()">Pick a little note ✨</button>
+
+  </section>
+
+  <!-- MUSIC -->
+
+  <section class="section">
+
+    <p class="small-label">04 / A SONG FOR YOUR DAY</p>
+
+    <h2>For when words aren't enough 🎧</h2>
+
+    <div class="music-card">
+
+      <div style="font-size:38px">🌼🎶</div>
+
+      <h3 style="margin-bottom:5px">Dandelions</h3>
+
+      <p style="margin-top:0">Ruth B.</p>
+
+      <p class="subtitle">Take a breath. Let the song keep you company for a while.</p>
+
+      <iframe
+
+        src="https://www.youtube-nocookie.com/embed/HRqOjhNN4hQ"
+
+        title="Dandelions by Ruth B."
+
+        loading="lazy"
+
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+
+        referrerpolicy="strict-origin-when-cross-origin"
+
+        allowfullscreen>
+
+      </iframe>
+
+      <p class="subtitle">If the player doesn't work, open the song here:</p>
+
+      <a href="https://www.youtube.com/results?search_query=Ruth+B+Dandelions+official"
+
+         target="_blank" rel="noopener noreferrer"
+
+         style="color:#47785b;font-weight:700">
+
+         Listen on YouTube ↗
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- LETTER -->
+
+  <section class="section">
+
+    <p class="small-label">05 / A LITTLE LETTER</p>
+
+    <h2>Something I hope you remember 💚</h2>
+
+    <div class="letter" id="letterText">Dear Su Su San,
+
+Hey, you. I hope you're taking care of yourself, even in the little ways.
+
+I know life doesn't always go according to plan. Some days feel heavy, people can be confusing, and sometimes even explaining what's wrong feels exhausting.
+
+But you don't have to have everything figured out all the time. You are allowed to rest. You are allowed to have a bad day. You are allowed to be quiet when you don't have the words.
+
+I hope you remember that your worth isn't measured by how much you do, how happy you make everyone else, or how well you hide your difficult days.
+
+You're not a burden. You're my friend, and I'm glad you're here.
+
+Thank you for being the person you are. I hope life gives you more reasons to laugh until your stomach hurts, more peaceful nights, good surprises, and people who make you feel safe and appreciated.
+
+And if today is not your best day, that's okay too. You don't have to turn everything around in one night. One small step is enough.
+
+Please eat something, drink some water, get some rest, and be a little kinder to yourself.
+
+Rooting for you, always. 🌷
+
+— Someone who wishes you well ♡</div>
+
+    <button class="primary" style="margin-top:15px" onclick="copyLetter()">
+
+      Copy this little letter ♡
+
+    </button>
+
+  </section>
+
+  <!-- HUG -->
+
+  <section class="section center">
+
+    <p class="small-label">06 / YOUR LAST LITTLE SURPRISE</p>
+
+    <h2>One virtual hug, coming right up! 🫂</h2>
+
+    <p>Press the button when you need a tiny reminder that you matter.</p>
+
+    <span class="hug">🐻🌷</span>
+
+    <button class="primary" onclick="sendHug()">Send me a virtual hug ♡</button>
+
+    <div id="hugMessage" class="feedback hidden" aria-live="polite"></div>
+
+    <p class="subtitle" style="margin-top:20px">
+
+      You made it to the end. I'm proud of you for showing up today.
+
+    </p>
+
+  </section>
+
+  <footer>
+
+    Made with kindness, little flowers, and a whole lot of care 🌿<br>
+
+    Remember: you don't have to be okay every second.
+
+  </footer>
+
+</main>
+
+<div id="toast" class="hidden" role="status"></div>
+
+<script>
+
+const $ = (id) => document.getElementById(id);
+
+function showToast(message) {
+
+  const toast = $('toast');
+
+  toast.textContent = message;
+
+  toast.classList.remove('hidden');
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(() => toast.classList.add('hidden'), 2400);
+
+}
+
+// NAME GATE
+
+$('nameForm').addEventListener('submit', function(event) {
+
+  event.preventDefault();
+
+  const entered = $('nameInput').value.trim().toLowerCase();
+
+  const correct = 'su su san';
+
+  if (entered === correct) {
+
+    $('gate').classList.add('hidden');
+
+    $('app').classList.remove('hidden');
+
+    window.scrollTo(0, 0);
+
+    sparkleBurst();
+
+  } else {
+
+    $('gateError').textContent =
+
+      "Hmm, this little corner is made for Su Su San. Try your name again. 🌷";
+
+    $('nameInput').focus();
+
+  }
+
+});
+
+// QUIZ
+
+const questions = [
+
+  {
+
+    q: "If you suddenly became a potato, what would you do first?",
+
+    a: ["Become french fries 🍟", "Live a quiet potato life 🥔", "Start a potato band 🎸", "Question everything 😭"],
+
+    good: 0,
+
+    message: "Honestly, a potato with big dreams. Respect. 🍟"
+
+  },
+
+  {
+
+    q: "Your brain at 2 AM is probably...",
+
+    a: ["Planning my future 📚", "Replaying old conversations 🫠", "Inventing fake scenarios 🎬", "Absolutely offline 💤"],
+
+    good: 2,
+
+    message: "The midnight imagination studio is OPEN. 🎬"
+
+  },
+
+  {
+
+    q: "Someone says, 'We need to talk.' You...",
+
+    a: ["Stay calm 😌", "Panic internally 🫨", "Write a whole movie in my head 🎥", "Ask if they brought snacks 🍪"],
+
+    good: 3,
+
+    message: "Snacks first. Serious conversations can wait five minutes. 🍪"
+
+  },
+
+  {
+
+    q: "Your ideal superpower would be...",
+
+    a: ["Teleport anywhere ✨", "Sleep instantly 😴", "Read minds 🧠", "Make food appear 🍜"],
+
+    good: 1,
+
+    message: "The power to sleep on command is genuinely elite. 😴"
+
+  },
+
+  {
+
+    q: "What's the official rule of a difficult day?",
+
+    a: ["Be perfect anyway", "Never ask for help", "Rest, breathe, try again 🌱", "Pretend to be a robot"],
+
+    good: 2,
+
+    message: "Correct answer energy! Being gentle with yourself counts. 🌱"
+
+  }
+
+];
+
+let qIndex = 0;
+
+let score = 0;
+
+let answered = false;
+
+function renderQuestion() {
+
+  answered = false;
+
+  const q = questions[qIndex];
+
+  $('questionCount').textContent = `Question ${qIndex + 1} of ${questions.length}`;
+
+  $('progress').style.width = `${(qIndex / questions.length) * 100}%`;
+
+  $('question').textContent = q.q;
+
+  $('answers').innerHTML = '';
+
+  $('quizFeedback').classList.add('hidden');
+
+  $('nextQuestion').classList.add('hidden');
+
+  $('quizResult').classList.add('hidden');
+
+  $('question').classList.remove('hidden');
+
+  $('answers').classList.remove('hidden');
+
+  $('questionCount').classList.remove('hidden');
+
+  q.a.forEach((answer, index) => {
+
+    const button = document.createElement('button');
+
+    button.className = 'option';
+
+    button.textContent = answer;
+
+    button.addEventListener('click', () => chooseAnswer(index, button));
+
+    $('answers').appendChild(button);
+
+  });
+
+}
+
+function chooseAnswer(index, button) {
+
+  if (answered) return;
+
+  answered = true;
+
+  const q = questions[qIndex];
+
+  const allButtons = $('answers').querySelectorAll('button');
+
+  allButtons.forEach(b => b.disabled = true);
+
+  if (index === q.good) {
+
+    score++;
+
+    button.classList.add('correct');
+
+  } else {
+
+    button.classList.add('wrong');
+
+    allButtons[q.good].classList.add('correct');
+
+  }
+
+  $('quizFeedback').textContent = q.message;
+
+  $('quizFeedback').classList.remove('hidden');
+
+  $('nextQuestion').textContent =
+
+    qIndex === questions.length - 1 ? 'See my result ✨' : 'Next question →';
+
+  $('nextQuestion').classList.remove('hidden');
+
+}
+
+$('nextQuestion').addEventListener('click', function() {
+
+  qIndex++;
+
+  if (qIndex < questions.length) {
+
+    renderQuestion();
+
+  } else {
+
+    $('progress').style.width = '100%';
+
+    $('question').classList.add('hidden');
+
+    $('answers').classList.add('hidden');
+
+    $('questionCount').classList.add('hidden');
+
+    $('quizFeedback').classList.add('hidden');
+
+    $('nextQuestion').classList.add('hidden');
+
+    $('quizResult').classList.remove('hidden');
+
+    const messages = [
+
+      "A perfect score! Your silly-brain diploma is on its way. 🏆",
+
+      "Excellent work. You are officially certified in being yourself. 🌷",
+
+      "You survived the investigation! That's the important part. 💚"
+
+    ];
+
+    $('resultText').textContent =
+
+      `${score} out of ${questions.length} points! ${messages[Math.min(2, Math.floor(score / 2))]}`;
+
+    sparkleBurst();
+
+  }
+
+});
+
+function restartQuiz() {
+
+  qIndex = 0;
+
+  score = 0;
+
+  renderQuestion();
+
+}
+
+renderQuestion();
+
+// MOOD PICKER
+
+const moods = {
+
+  sad: "It's okay to feel sad. You don't have to force a smile just to make other people comfortable. Take your time. 🌧️",
+
+  tired: "Rest is not laziness. You deserve a break even when your to-do list isn't finished. Please give yourself permission to breathe. ☁️",
+
+  angry: "Take a moment before you respond to anything. You can feel upset without having to solve everything right now. 🌿",
+
+  okay: "Okay is a good place to be, too. I hope your ordinary day has one unexpectedly lovely little moment. 🌤️",
+
+  happy: "AHHH, I hope this happiness stays for a while! Collect the little moments that make you smile. You deserve them. 🌷",
+
+  unknown: "You don't have to name every feeling. Sometimes 'I don't know' is a perfectly honest answer. Just take the next small step. 🫧"
+
+};
+
+function pickMood(mood) {
+
+  $('moodMessage').textContent = moods[mood];
+
+  $('moodMessage').classList.remove('hidden');
+
+  sparkleBurst();
+
+}
+
+// COMPLIMENT JAR
+
+const compliments = [
+
+  "You don't have to be the loudest person in the room to matter. 🌱",
+
+  "Your existence is more than enough on the days you don't feel productive. 💚",
+
+  "I hope you notice the good things about yourself that other people notice. 🌷",
+
+  "You deserve kindness that doesn't have to be earned. 🤍",
+
+  "Even the smallest progress is still progress. Please give yourself credit. ✨",
+
+  "You are allowed to grow slowly. Flowers don't bloom all at once. 🌼",
+
+  "I hope you meet people who make being yourself feel easy. 🫶🏻",
+
+  "Your difficult days don't erase all the good things about you. ☁️",
+
+  "You have made it through days you once thought would be too hard. That's something. 🌿",
+
+  "Here's your reminder to drink water and stop being so mean to yourself. 💧",
+
+  "You deserve good food, deep sleep, peaceful thoughts, and lovely surprises. 🍰",
+
+  "Some days, getting through the day is already an achievement. I'm proud of you. 🤍"
+
+];
+
+let lastCompliment = -1;
+
+function getCompliment() {
+
+  let index;
+
+  do {
+
+    index = Math.floor(Math.random() * compliments.length);
+
+  } while (index === lastCompliment && compliments.length > 1);
+
+  lastCompliment = index;
+
+  $('compliment').textContent = compliments[index];
+
+  sparkleBurst();
+
+}
+
+// COPY LETTER
+
+async function copyLetter() {
+
+  const text = $('letterText').innerText;
+
+  try {
+
+    if (navigator.clipboard && window.isSecureContext) {
+
+      await navigator.clipboard.writeText(text);
+
+    } else {
+
+      const textarea = document.createElement('textarea');
+
+      textarea.value = text;
+
+      textarea.style.position = 'fixed';
+
+      textarea.style.opacity = '0';
+
+      document.body.appendChild(textarea);
+
+      textarea.select();
+
+      const success = document.execCommand('copy');
+
+      textarea.remove();
+
+      if (!success) throw new Error('Copy unavailable');
+
+    }
+
+    showToast('Little letter copied! 💌');
+
+  } catch (error) {
+
+    showToast('Please select and copy the letter manually 💚');
+
+  }
+
+}
+
+// VIRTUAL HUG
+
+function sendHug() {
+
+  $('hugMessage').textContent =
+
+    "Sending you the biggest, warmest virtual hug. 🫂💚 You don't need to say anything back. Take a breath, relax your shoulders, and remember to be gentle with yourself today.";
+
+  $('hugMessage').classList.remove('hidden');
+
+  sparkleBurst();
+
+}
+
+// LITTLE SPARKLES
+
+function sparkleBurst() {
+
+  const symbols = ['✨', '🌷', '💚', '🌼', '♡', '🍀'];
+
+  for (let i = 0; i < 18; i++) {
+
+    const el = document.createElement('span');
+
+    el.className = 'sparkle';
+
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+    el.style.left = Math.random() * 100 + 'vw';
+
+    el.style.top = (35 + Math.random() * 45) + 'vh';
+
+    el.style.fontSize = (14 + Math.random() * 18) + 'px';
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 1400);
+
+  }
+
+}
+
+</script>
+
+</body>
+
+</html>
